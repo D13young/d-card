@@ -3,6 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { join } from 'path';
+import { HealthModule } from './health/health.module';
 import { ProfileModule } from './profile/profile.module';
 import { PrismaModule } from './prisma/prisma.module';
 
@@ -24,6 +25,7 @@ type ApolloPlugin = NonNullable<ApolloDriverConfig['plugins']>[number];
     }),
     ProfileModule,
     PrismaModule,
+    HealthModule,
   ],
 })
 export class AppModule {}

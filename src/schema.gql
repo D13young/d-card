@@ -49,11 +49,17 @@ type ProjectEntity {
 }
 
 type Query {
+  health: String!
   profile: ProfileEntity!
+  skills(filter: SkillFilterArgs): [SkillEntity!]!
 }
 
 type SkillEntity {
   category: String!
   id: Int!
   name: String!
+}
+
+input SkillFilterArgs {
+  category: String
 }

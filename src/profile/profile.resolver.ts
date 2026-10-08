@@ -1,6 +1,8 @@
 import { NotFoundException } from '@nestjs/common';
-import { Query, Resolver } from '@nestjs/graphql';
+import { Args, Query, Resolver } from '@nestjs/graphql';
+import { SkillFilterArgs } from './dto/skill-filter.args';
 import { ProfileEntity } from './entities/profile.entity';
+import { SkillEntity } from './entities/skill.entity';
 import { ProfileService } from './profile.service';
 
 @Resolver(() => ProfileEntity)
@@ -14,5 +16,16 @@ export class ProfileResolver {
       throw new NotFoundException('Profile not found');
     }
     return profile;
+  }
+
+  @Query(() => [SkillEntity])
+  async skills(
+    @Args('filter', {
+      type: () => SkillFilterArgs,
+      nullable: true,
+    })
+    filter?: SkillFilterArgs,
+  ): Promise<SkillEntity[]> {
+    return this.profileService.findSkills(filter);
   }
 }
