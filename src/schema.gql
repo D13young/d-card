@@ -2,11 +2,57 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type AchievementEntity {
+  id: Int!
+  text: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type ExperienceEntity {
+  achievements: [AchievementEntity!]!
+  company: String!
+  description: String
+  endDate: DateTime
+  id: Int!
+  position: String!
+  stack: String
+  startDate: DateTime!
+}
+
 type ProfileEntity {
   description: String!
+  email: String
+  experience: [ExperienceEntity!]!
+  githubUrl: String
+  id: Int!
+  linkedinUrl: String
+  location: String
   name: String!
+  projects: [ProjectEntity!]!
+  skills: [SkillEntity!]!
+  title: String!
+  websiteUrl: String
+}
+
+type ProjectEntity {
+  description: String!
+  id: Int!
+  name: String!
+  repositoryUrl: String
+  stack: String
+  url: String!
 }
 
 type Query {
   profile: ProfileEntity!
+}
+
+type SkillEntity {
+  category: String!
+  id: Int!
+  name: String!
 }
