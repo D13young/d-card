@@ -4,6 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { join } from 'path';
 import { ProfileModule } from './profile/profile.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 type ApolloPlugin = NonNullable<ApolloDriverConfig['plugins']>[number];
 
@@ -22,6 +23,7 @@ type ApolloPlugin = NonNullable<ApolloDriverConfig['plugins']>[number];
       ],
     }),
     ProfileModule,
+    PrismaModule,
   ],
 })
 export class AppModule {}
