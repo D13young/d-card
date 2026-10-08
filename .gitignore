@@ -6,6 +6,7 @@ coverage/
 *.db
 *.db-journal
 *.log
+*.tsbuildinfo
 data/
 .idea/
 .vscode/
