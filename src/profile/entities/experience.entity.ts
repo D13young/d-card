@@ -30,6 +30,9 @@ export class ExperienceEntity implements ExperienceDto {
   @Field(() => String, { nullable: true })
   stack!: string | null;
 
+  @Field(() => String)
+  duration?: string;
+
   @Field(() => [AchievementEntity])
   achievements!: AchievementEntity[];
 }

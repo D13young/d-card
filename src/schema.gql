@@ -16,6 +16,7 @@ type ExperienceEntity {
   achievements: [AchievementEntity!]!
   company: String!
   description: String
+  duration: String!
   endDate: DateTime
   id: Int!
   position: String!
