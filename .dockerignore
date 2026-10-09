@@ -1,0 +1,13 @@
+node_modules
+dist
+.git
+.env
+data
+prisma/dev.db
+prisma/data
+*.db
+*.db-journal
+*.log
+*.tsbuildinfo
+.idea
+.vscode

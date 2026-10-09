@@ -1,0 +1,11 @@
+services:
+  digital-card:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: file:/app/prisma/data/card.db
+      PORT: "3000"
+    volumes:
+      - ./data:/app/prisma/data
+    restart: unless-stopped
