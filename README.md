@@ -47,6 +47,7 @@ docker compose up --build
 | `npm start` | сборка и запуск |
 | `npm run start:prod` | запуск из `dist/` |
 | `npm run build` | сборка в `dist/` |
+| `npm test` | e2e-тесты (`node:test`, реальный запрос к приложению) |
 | `npm run db:seed` | заполнение БД (идемпотентно) |
 | `npm run db:reset` | пересоздание БД + заполнение |
 
