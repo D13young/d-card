@@ -1,6 +1,6 @@
 # Digital Card — цифровая визитка
 
-Backend-приложение, презентующее специалиста: профиль, навыки, опыт работы и проекты — через GraphQL API с Apollo Sandbox.
+Backend-приложение, презентующее специалиста: профиль, навыки, опыт работы и проекты через GraphQL API с Apollo Sandbox.
 
 ## Стек
 
@@ -27,7 +27,7 @@ cp .env.example .env
 npm start
 ```
 
-При старте приложение самостоятельно применяет миграции и заполняет БД данными визитки — дополнительные команды не нужны.
+При старте приложение самостоятельно применяет миграции и заполняет БД данными визитки.
 
 Apollo Sandbox: **http://localhost:3000/graphql**
 
@@ -57,7 +57,7 @@ docker compose up --build
 
 - `profile: Profile!` — профиль со связанными данными (вложенные `skills`, `experience` → `achievements`, `projects`)
 - `skills(filter: SkillFilterArgs): [Skill!]!` — навыки с фильтром по категории
-- `health: String!` — проверка доступности сервиса (для мониторинга/деплоя)
+- `health: String!` — проверка доступности сервиса
 
 Пример запроса:
 
@@ -85,19 +85,19 @@ query {
 }
 ```
 
-Полная схема API генерируется в `src/schema.gql`. Типы: `Profile`, `Skill`, `Experience` (включая вычисляемое поле `duration` — стаж с русскими склонениями), `Achievement`, `Project`.
+Полная схема API генерируется в `src/schema.gql`. Типы: `Profile`, `Skill`, `Experience` (включая вычисляемое поле `duration`), `Achievement`, `Project`.
 
 ## Структура проекта
 
 ```
 digital-card/
 ├── src/
-│   ├── main.ts                          # точка входа (PORT, CORS)
+│   ├── main.ts                          # точка входа
 │   ├── app.module.ts                    # корневой модуль
 │   ├── prisma/
 │   │   ├── prisma.module.ts             # глобальный модуль
 │   │   ├── prisma.service.ts            # обёртка над PrismaClient
-│   │   ├── database-initializer.service.ts  # миграции + seed при старте
+│   │   ├── database-initializer.service.ts  # миграции и seed при старте
 │   │   └── seed-data.ts                 # данные визитки
 │   ├── profile/                         # модуль профиля
 │   │   ├── profile.module.ts
@@ -129,7 +129,3 @@ digital-card/
 ## Данные
 
 Содержимое визитки (профиль, навыки, опыт, проекты) — в `src/prisma/seed-data.ts`. Меняете данные там → `npm run db:reset` → обновление в БД.
-
-## Автор
-
-Косиненко Сергей — [GitHub](https://github.com/D13young) · [Сайт-резюме](https://d13young.github.io/my-resume/)
