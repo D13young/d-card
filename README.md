@@ -20,8 +20,8 @@ Backend-приложение, презентующее специалиста: �
 ### Локально
 
 ```bash
-git clone <ссылка-на-репозиторий>
-cd digital-card
+git clone https://github.com/D13young/d-card.git
+cd d-card
 npm ci
 cp .env.example .env
 npm start
