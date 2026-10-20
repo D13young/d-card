@@ -9,6 +9,8 @@ RUN npm ci && npx prisma generate && npm run build
 FROM node:24-alpine AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
+ENV DATABASE_URL="file:/app/prisma/data/card.db"
+RUN mkdir -p /app/prisma/data
 COPY package.json package-lock.json ./
 COPY prisma ./prisma
 RUN npm ci --omit=dev && npx prisma generate
